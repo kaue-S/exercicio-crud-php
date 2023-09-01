@@ -3,7 +3,6 @@ require_once "src/funcoes-alunos.php";
 $listaDeAlunos = lerAlunos($conexao);
 
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -23,32 +22,40 @@ $listaDeAlunos = lerAlunos($conexao);
 
         <?php
         foreach ($listaDeAlunos as $alunos) {
-            // $media = $alunos['media'];
+            
             $primeiraNota = number_format($alunos['primeira_nota'], 2, ',', '');
             $segundaNota = number_format($alunos['segunda_nota'], 2, ',', '');
-            $media = number_format($alunos['media'], 2, ',', '');
+            $media = $alunos['media'];
 
         ?>
             <article>
                 <h3>Nome: <?= $alunos['nome'] ?></h3>
                 <p>Primeira nota: <?= $primeiraNota ?></p>
                 <p>Segunda nota: <?= $segundaNota ?></p>
-                <p>Media: <?= $media ?></p>
-                <p><a href="atualizar.php">Atualizar</a></p>
+                <p>Media: <?= number_format($media) ?></p>
             </article>
 
         <?php
             if ($media >= 7) {
                 echo "Aprovado!";
-            } else if ($media >= 5 & $media < 7) {
+                
+            } else if ($media >= 5 && $media < 7) {
                 echo "Recuperação!";
+
             } else {
                 echo "Reprovado!";
             }
+        ?>
+
+        <div>
+            <p><a href="atualizar.php">Atualizar</a></p>
+            <p><a href="excluir.php">Excluir</a></p>
+        </div>
+
+        <?php    
         }
         ?>
 
-        <p><a href="atualizar.php?id=<?=$aluno['id']?>">Atualizar</a></p>
 
 
         <!-- Aqui você deverá criar o HTML que quiser e o PHP necessários

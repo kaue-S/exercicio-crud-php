@@ -1,7 +1,11 @@
 <?php
     require_once "src/funcoes-alunos.php";
-    require_once "src/conexao.php";
-    
+
+    if(isset($_POST['atualizar-dados'])){
+        $nome = filter_input(INPUT_POST, "nome", FILTER_SANITIZE_SPECIAL_CHARS);
+        $primeiraNota = filter_input(INPUT_POST, "primeira_nota", FILTER_SANITIZE_NUMBER_FLOAT);
+        $segundaNota = filter_input(INPUT_POST, "segunda_nota", FILTER_SANITIZE_NUMBER_FLOAT);
+    }
 ?>
 
 <!DOCTYPE html>

@@ -1,11 +1,11 @@
 <?php
 require_once "src/funcoes-alunos.php";
-	if(isset($_POST['cadastrar'])){
-		require_once "src/conexao.php";
 
+	if(isset($_POST['cadastrar'])){
+		
 		$nome = filter_input(INPUT_POST, "nome", FILTER_SANITIZE_SPECIAL_CHARS);
-		$primeiraNota = filter_input(INPUT_POST, "primeira", FILTER_SANITIZE_NUMBER_FLOAT);
-		$segundaNota = filter_input(INPUT_POST, "segunda", FILTER_SANITIZE_NUMBER_FLOAT);
+		$primeiraNota = filter_input(INPUT_POST, "primeira", FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION );
+		$segundaNota = filter_input(INPUT_POST, "segunda", FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
 
 		inserirAluno($conexao, $nome, $primeiraNota, $segundaNota);
 		header("location:visualizar.php");
