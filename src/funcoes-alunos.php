@@ -22,7 +22,7 @@
 // função para ler alunos
 
 function lerAlunos(PDO $conexao){
-    $sql = "SELECT nome, primeira_nota, segunda_nota, ((primeira_nota + segunda_nota) / 2) AS media FROM alunos";
+    $sql = "SELECT id, nome, primeira_nota, segunda_nota, ((primeira_nota + segunda_nota) / 2) AS media FROM alunos";
 
     
     try {
@@ -36,21 +36,38 @@ function lerAlunos(PDO $conexao){
     return $resultado;
 }
 
-// Função para editar alunos
+// Função para ler um aluno
 
-function atualizarAlunos(PDO $conexao, string $nome, float $primeiraNota, float $segundaNota):void{
-    $sql = "UPDATE produtos SET nome = :nome, primeira_nota = :segunda_nota";
+function lerUmAluno(PDO $conexao, int $id):array {
+    $sql = "SELECT * FROM alunos WHERE id = :id";
 
     try {
 
+        $consulta = $conexao->prepare($sql);
+        $consulta->bindValue(":id", $id, PDO::PARAM_INT);
+        $consulta->execute();
+        $resultado = $consulta->fetch(PDO::FETCH_ASSOC);
+
+    } catch (Exception $erro) {
+        die("Algo deu errado ao atualizar: ".$erro->getMessage());
+    }
+    return $resultado;
+}
+
+
+//função para atualizar um aluno
+
+function atualizarAlunos(PDO $conexao, string $nome, float $primeiraNota, float $segundaNota):void{
+    $sql = "UPDATE alunos SET nome = :nome, primeira_nota = :primeira_nota, segunda_nota = :segunda_nota";
+
+    try {
         $consulta = $conexao->prepare($sql);
         $consulta->bindValue(":nome", $nome, PDO::PARAM_STR);
         $consulta->bindValue(":primeira_nota", $primeiraNota, PDO::PARAM_STR);
         $consulta->bindValue(":segunda_nota", $segundaNota, PDO::PARAM_STR);
         $consulta->execute();
-
     } catch (Exception $erro) {
-        die("Algo deu errado ao atualizar: ".$erro->getMessage());
+        die("erro ao atualizar aluno ".$erro->getMessage());
     }
 }
 ?>

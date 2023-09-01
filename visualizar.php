@@ -48,8 +48,8 @@ $listaDeAlunos = lerAlunos($conexao);
         ?>
 
         <div>
-            <p><a href="atualizar.php">Atualizar</a></p>
-            <p><a href="excluir.php">Excluir</a></p>
+            <p><a href="atualizar.php?id=<?=$alunos['id']?>">Atualizar</a></p>
+            <p><a href="excluir.php?id=<?=$alunos['id']?>">Excluir</a></p>
         </div>
 
         <?php    

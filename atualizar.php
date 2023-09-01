@@ -1,12 +1,22 @@
 <?php
     require_once "src/funcoes-alunos.php";
 
+    $id = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
+    $alunos = lerUmAluno($conexao, $id);
+
+    
     if(isset($_POST['atualizar-dados'])){
+        
         $nome = filter_input(INPUT_POST, "nome", FILTER_SANITIZE_SPECIAL_CHARS);
         $primeiraNota = filter_input(INPUT_POST, "primeira_nota", FILTER_SANITIZE_NUMBER_FLOAT);
         $segundaNota = filter_input(INPUT_POST, "segunda_nota", FILTER_SANITIZE_NUMBER_FLOAT);
+        
+        atualizarAlunos($conexao, $id, $nome, $primeiraNota, $segundaNota);
+        header("location:visualizar.php");
+
     }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">

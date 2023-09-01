@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 31-Ago-2023 às 16:58
+-- Tempo de geração: 01-Set-2023 às 16:57
 -- Versão do servidor: 10.4.28-MariaDB
 -- versão do PHP: 8.2.4
 
@@ -35,6 +35,19 @@ CREATE TABLE `alunos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Extraindo dados da tabela `alunos`
+--
+
+INSERT INTO `alunos` (`id`, `nome`, `primeira_nota`, `segunda_nota`) VALUES
+(3, 'thiago', 7.00, 7.00),
+(4, 'tiago', 7.50, 7.50),
+(6, 'eu', 6.65, 7.00),
+(7, 'teste', 7.80, 6.69),
+(9, 'teste', 5.50, 4.50),
+(10, 'nicolas', 9.00, 9.00),
+(11, 'pedro', 10.00, 10.00);
+
+--
 -- Índices para tabelas despejadas
 --
 
@@ -52,7 +65,7 @@ ALTER TABLE `alunos`
 -- AUTO_INCREMENT de tabela `alunos`
 --
 ALTER TABLE `alunos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
