@@ -7,19 +7,29 @@
     if(isset($_POST['atualizar-dados'])){
         
         $nome = filter_input(INPUT_POST, "nome", FILTER_SANITIZE_SPECIAL_CHARS);
-        $primeiraNota = filter_input(INPUT_POST, "primeira_nota", FILTER_SANITIZE_NUMBER_FLOAT);
-        $segundaNota = filter_input(INPUT_POST, "segunda_nota", FILTER_SANITIZE_NUMBER_FLOAT);
+        $primeiraNota = filter_input(INPUT_POST, "primeira", FILTER_SANITIZE_NUMBER_FLOAT);
+        $segundaNota = filter_input(INPUT_POST, "segunda", FILTER_SANITIZE_NUMBER_FLOAT);
         
-        atualizarAlunos($conexao, $id, $nome, $primeiraNota, $segundaNota);
+        atualizarAlunos($conexao ,$id, $nome, $primeiraNota, $segundaNota);
         header("location:visualizar.php");
 
+    }
+
+    $media = ($aluno['primeira_nota'] + $aluno['segunda_nota']) / 2;
+
+    if ($media >= 7) {
+        $situacao = "Aprovado";
+    } elseif ($media >= 5 && $media < 7) {
+        $situacao = "Recuperação";
+    } else {
+        $situacao = "Reprovado";
     }
 
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
+<head>  
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Atualizar dados - Exercício CRUD com PHP e MySQL</title>
@@ -54,7 +64,7 @@
         <!-- Campo somente leitura e desabilitado para edição 
         Usado apenas para exibição do texto da situação -->
             <label for="situacao">Situação:</label>
-	        <input type="text" name="situacao" id="situacao" value="<?=$aluno['si']?>" readonly disabled>
+	        <input type="text" name="situacao" id="situacao" value="<?=$situacao?>" readonly disabled>
         </p>
 	    
         <button name="atualizar-dados">Atualizar dados do aluno</button>
