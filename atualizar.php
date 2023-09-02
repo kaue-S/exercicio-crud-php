@@ -2,8 +2,7 @@
     require_once "src/funcoes-alunos.php";
 
     $id = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
-    $alunos = lerUmAluno($conexao, $id);
-
+    $aluno = lerUmAluno($conexao, $id);
     
     if(isset($_POST['atualizar-dados'])){
         
@@ -15,8 +14,8 @@
         header("location:visualizar.php");
 
     }
-?>
 
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -30,32 +29,32 @@
 <div class="container">
     <h1>Atualizar dados do aluno </h1>
     <hr>
-    		
+	
     <p>Utilize o formulário abaixo para atualizar os dados do aluno.</p>
 
     <form action="#" method="post">
         
 	    <p><label for="nome">Nome:</label>
-	    <input type="text" name="nome" id="nome" required></p>
+	    <input type="text" name="nome" id="nome" required value="<?=$aluno['nome']?>"></p>
         
         <p><label for="primeira">Primeira nota:</label>
-	    <input name="primeira" type="number" id="primeira" step="0.01" min="0.00" max="10.00" required></p>
+	    <input name="primeira" type="number" id="primeira" step="0.01" min="0.00" max="10.00" required value="<?=$aluno['primeira_nota']?>"></p>
 	    
 	    <p><label for="segunda">Segunda nota:</label>
-	    <input name="segunda" type="number" id="segunda" step="0.01" min="0.00" max="10.00" required></p>
+	    <input name="segunda" type="number" id="segunda" step="0.01" min="0.00" max="10.00" required value="<?=$aluno['segunda_nota']?>"></p>
 
         <p>
         <!-- Campo somente leitura e desabilitado para edição.
         Usado apenas para exibição do valor da média -->
             <label for="media">Média: </label>
-            <input name="media" type="number" id="media" step="0.01" min="0.00" max="10.00" readonly disabled>
+            <input name="media" type="number" id="media" step="0.01" min="0.00" max="10.00" readonly disabled value="<?=$aluno['media']?>">
         </p>
 
         <p>
         <!-- Campo somente leitura e desabilitado para edição 
         Usado apenas para exibição do texto da situação -->
             <label for="situacao">Situação:</label>
-	        <input type="text" name="situacao" id="situacao" readonly disabled>
+	        <input type="text" name="situacao" id="situacao" value="<?=$aluno['si']?>" readonly disabled>
         </p>
 	    
         <button name="atualizar-dados">Atualizar dados do aluno</button>
