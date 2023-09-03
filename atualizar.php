@@ -7,8 +7,8 @@
     if(isset($_POST['atualizar-dados'])){
         
         $nome = filter_input(INPUT_POST, "nome", FILTER_SANITIZE_SPECIAL_CHARS);
-        $primeiraNota = filter_input(INPUT_POST, "primeira", FILTER_SANITIZE_NUMBER_FLOAT);
-        $segundaNota = filter_input(INPUT_POST, "segunda", FILTER_SANITIZE_NUMBER_FLOAT);
+        $primeiraNota = filter_input(INPUT_POST, "primeira_nota", FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+        $segundaNota = filter_input(INPUT_POST, "segunda_nota", FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
         
         atualizarAlunos($conexao ,$id, $nome, $primeiraNota, $segundaNota);
         header("location:visualizar.php");
@@ -47,11 +47,11 @@
 	    <p><label for="nome">Nome:</label>
 	    <input type="text" name="nome" id="nome" required value="<?=$aluno['nome']?>"></p>
         
-        <p><label for="primeira">Primeira nota:</label>
-	    <input name="primeira" type="number" id="primeira" step="0.01" min="0.00" max="10.00" required value="<?=$aluno['primeira_nota']?>"></p>
+        <p><label for="primeira_nota">Primeira nota:</label>
+	    <input name="primeira_nota" type="number" id="primeira" step="0.01" min="0.00" max="10.00" required value="<?=$aluno['primeira_nota']?>"></p>
 	    
-	    <p><label for="segunda">Segunda nota:</label>
-	    <input name="segunda" type="number" id="segunda" step="0.01" min="0.00" max="10.00" required value="<?=$aluno['segunda_nota']?>"></p>
+	    <p><label for="segunda_nota">Segunda nota:</label>
+	    <input name="segunda_nota" type="number" id="segunda" step="0.01" min="0.00" max="10.00" required value="<?=$aluno['segunda_nota']?>"></p>
 
         <p>
         <!-- Campo somente leitura e desabilitado para edição.

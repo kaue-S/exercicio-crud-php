@@ -29,11 +29,11 @@ foreach ($listaDeAlunos as $alunos) {
 
     // Calcula a situação com base na média
     if ($media >= 7) {
-        $situacao = "Aprovado";
+        $situacao = "<b style=color:blue>Aprovado!</b>";
     } elseif ($media >= 5 && $media < 7) {
-        $situacao = "Recuperação";
+        $situacao = "<b style=color:yellow>Recuperação!</b>";
     } else {
-        $situacao = "Reprovado";
+        $situacao = "<b style=color:red>Reprovado!</b>";
     }
 ?>
     <article>
@@ -46,24 +46,16 @@ foreach ($listaDeAlunos as $alunos) {
 
         <div>
             <p><a href="atualizar.php?id=<?=$alunos['id']?>">Atualizar</a></p>
-            <p><a href="excluir.php?id=<?=$alunos['id']?>">Excluir</a></p>
+            <p><a class="excluir" href="excluir.php?id=<?=$alunos['id']?>">Excluir</a></p>
         </div>
 
         <?php    
         }
         ?>
 
-
-        <!-- Aqui você deverá criar o HTML que quiser e o PHP necessários
-para exibir a relação de alunos existentes no banco de dados.
-
-Obs.: não se esqueça de criar também os links dinâmicos para
-as páginas de atualização e exclusão. -->
-        
-
         <p><a href="index.php">Voltar ao início</a></p>
     </div>
-
+<script src="js/confirmar-exclusao.js"></script>
 </body>
 
 </html>

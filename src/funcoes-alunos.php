@@ -77,4 +77,15 @@ function atualizarAlunos(PDO $conexao, int $id, string $nome, float $primeiraNot
         die("erro ao atualizar aluno ".$erro->getMessage());
     }
 }
+
+function excluirAluno(PDO $conexao, int $id): void{
+    $sql = "DELETE FROM alunos WHERE id = :id";
+    try {
+        $consulta = $conexao->prepare($sql);
+        $consulta->bindValue(":id", $id, PDO::PARAM_INT);
+        $consulta->execute();
+    } catch (Exception $erro) {
+        die ("Erro ao excluir: ".$erro->getMessage());
+    }
+}
 ?>
