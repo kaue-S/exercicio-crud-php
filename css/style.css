@@ -17,17 +17,37 @@ a {
 h1{text-align: center;}
 h2 a { font-size: 0.9rem; }
 
-a:hover, a:focus { text-decoration: underline;}
+a:hover, a:focus { 
+    text-decoration: underline;
+}
 
 .container table{
     margin: auto;
-border-collapse: collapse;
-text-align: center;
+    border-collapse: collapse;
+    text-align: center;
 
 }
 
+.container table tr:nth-child(even){
+    background-color: rgb(143, 170, 170);
+}
 
-.container table tr:nth-child(even){background-color: rgb(143, 170, 170);}
+.container table th, td{
+    padding: 10px;
+}
 
-.container table th, td{padding: 10px;}
-.exc a{color: red;}
+.exc a{
+    color: red;
+}
+
+.linkes{
+    display: flex;
+    margin: auto;
+    width: 350px;
+}
+
+.link{
+    padding: 10px;
+    margin-left: 5px;
+
+}

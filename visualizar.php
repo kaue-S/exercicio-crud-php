@@ -19,10 +19,6 @@ $listaDeAlunos = lerAlunos($conexao);
         <h1>Lista de alunos</h1>
         <hr>
 
-        <p><a href="inserir.php">Inserir novo aluno</a></p>
-
-    
-
         <table border="1px solid">
         <tr>
             <th>Alunos</th>
@@ -54,7 +50,7 @@ $listaDeAlunos = lerAlunos($conexao);
             <td><?= $segundaNota ?></td>
             <td><?= number_format($media, 2, ',', '.') ?></td>
             <td><?= $situacao ?></td>
-            <td class="atu"><a href="atualizar.php?id=<?=$alunos['id']?>">Atualizar</a></td>
+            <td class="atu"><a href="atualizar.php?id=<?=$alunos['id']?>">Editar</a></td>
             <td class="exc"><a class="excluir" href="excluir.php?id=<?=$alunos['id']?>">Excluir</a></td>
         </tr>
 
@@ -62,7 +58,10 @@ $listaDeAlunos = lerAlunos($conexao);
         }
         ?>
     </table>
-        <p><a href="index.php">Voltar ao início</a></p>
+        <div class="linkes">
+            <p class="link"><a href="inserir.php">Inserir novo aluno</a></p>
+            <p class="link"><a href="index.php">Voltar ao início</a></p>
+        </div>
     </div>
 <script src="js/confirmar-exclusao.js"></script>
 </body>
