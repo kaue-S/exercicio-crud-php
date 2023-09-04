@@ -21,21 +21,25 @@ $listaDeAlunos = lerAlunos($conexao);
 
         <p><a href="inserir.php">Inserir novo aluno</a></p>
 
-        <?php
-foreach ($listaDeAlunos as $alunos) {
+    
+
+    
+    <?php foreach ($listaDeAlunos as $alunos) {
     $primeiraNota = number_format($alunos['primeira_nota'], 2, ',', '');
     $segundaNota = number_format($alunos['segunda_nota'], 2, ',', '');
     $media = $alunos['media'];
 
     // Calcula a situação com base na média
     if ($media >= 7) {
-        $situacao = "<b style=color:blue>Aprovado!</b>";
+         $situacao = "<b style=color:blue>Aprovado!</b>";
     } elseif ($media >= 5 && $media < 7) {
-        $situacao = "<b style=color:yellow>Recuperação!</b>";
+         $situacao = "<b style=color:yellow>Recuperação!</b>";
     } else {
-        $situacao = "<b style=color:red>Reprovado!</b>";
+         $situacao = "<b style=color:red>Reprovado!</b>";
     }
 ?>
+
+
     <article>
         <h3>Nome: <?= $alunos['nome'] ?></h3>
         <p>Primeira nota: <?= $primeiraNota ?></p>
@@ -48,7 +52,6 @@ foreach ($listaDeAlunos as $alunos) {
             <p><a href="atualizar.php?id=<?=$alunos['id']?>">Atualizar</a></p>
             <p><a class="excluir" href="excluir.php?id=<?=$alunos['id']?>">Excluir</a></p>
         </div>
-
         <?php    
         }
         ?>
