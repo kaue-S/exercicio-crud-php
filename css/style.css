@@ -1,4 +1,4 @@
-html { font-size: 16px;}
+html { font-size: 16px; text-transform: capitalize;}
 body { font-family: "Segoe UI", Arial, sans-serif;}
 
 .container {
@@ -13,10 +13,21 @@ a {
     text-decoration: none;
     font-size: 1rem;
 }
-h2 a { font-size: 0.9rem;}
+
+h1{text-align: center;}
+h2 a { font-size: 0.9rem; }
 
 a:hover, a:focus { text-decoration: underline;}
 
-.alunos{
-    display: flex;
+.container table{
+    margin: auto;
+border-collapse: collapse;
+text-align: center;
+
 }
+
+
+.container table tr:nth-child(even){background-color: rgb(143, 170, 170);}
+
+.container table th, td{padding: 10px;}
+.exc a{color: red;}

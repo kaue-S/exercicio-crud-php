@@ -23,7 +23,16 @@ $listaDeAlunos = lerAlunos($conexao);
 
     
 
-    
+        <table border="1px solid">
+        <tr>
+            <th>Alunos</th>
+            <th>Primeira Nota</th>
+            <th>Segunda Nota</th>
+            <th>Media</th>
+            <th>Situação</th>
+            <th colspan="2">Opções</th>
+        </tr>
+
     <?php foreach ($listaDeAlunos as $alunos) {
     $primeiraNota = number_format($alunos['primeira_nota'], 2, ',', '');
     $segundaNota = number_format($alunos['segunda_nota'], 2, ',', '');
@@ -31,31 +40,28 @@ $listaDeAlunos = lerAlunos($conexao);
 
     // Calcula a situação com base na média
     if ($media >= 7) {
-         $situacao = "<b style=color:blue>Aprovado!</b>";
+         $situacao = "<b style=color:green>Aprovado!</b>";
     } elseif ($media >= 5 && $media < 7) {
-         $situacao = "<b style=color:yellow>Recuperação!</b>";
+         $situacao = "<b style=color:#FFD700>Recuperação!</b>";
     } else {
          $situacao = "<b style=color:red>Reprovado!</b>";
     }
 ?>
 
+        <tr>
+            <td><?= $alunos['nome'] ?></td>
+            <td><?= $primeiraNota ?></td>
+            <td><?= $segundaNota ?></td>
+            <td><?= number_format($media, 2, ',', '.') ?></td>
+            <td><?= $situacao ?></td>
+            <td class="atu"><a href="atualizar.php?id=<?=$alunos['id']?>">Atualizar</a></td>
+            <td class="exc"><a class="excluir" href="excluir.php?id=<?=$alunos['id']?>">Excluir</a></td>
+        </tr>
 
-    <article>
-        <h3>Nome: <?= $alunos['nome'] ?></h3>
-        <p>Primeira nota: <?= $primeiraNota ?></p>
-        <p>Segunda nota: <?= $segundaNota ?></p>
-        <p>Média: <?= number_format($media, 2, ',', '.') ?></p>
-        <p>Situação: <?= $situacao ?></p>
-    </article>
-
-        <div>
-            <p><a href="atualizar.php?id=<?=$alunos['id']?>">Atualizar</a></p>
-            <p><a class="excluir" href="excluir.php?id=<?=$alunos['id']?>">Excluir</a></p>
-        </div>
         <?php    
         }
         ?>
-
+    </table>
         <p><a href="index.php">Voltar ao início</a></p>
     </div>
 <script src="js/confirmar-exclusao.js"></script>
