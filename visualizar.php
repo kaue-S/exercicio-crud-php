@@ -12,16 +12,16 @@ $listaDeAlunos = lerAlunos($conexao);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Lista de alunos - Exercício CRUD com PHP e MySQL</title>
     <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="fontawesome/css/all.css">
 </head>
 
 <body>
     <div class="container">
-        <h1>Lista de alunos</h1>
-        <hr>
+        <h1>Lista de alunos</h1><br>
 
         <table border="1px solid">
         <tr>
-            <th>Alunos</th>
+            <th>Aluno</th>
             <th>Primeira Nota</th>
             <th>Segunda Nota</th>
             <th>Media</th>
@@ -50,8 +50,8 @@ $listaDeAlunos = lerAlunos($conexao);
             <td><?= $segundaNota ?></td>
             <td><?= number_format($media, 2, ',', '.') ?></td>
             <td><?= $situacao ?></td>
-            <td class="atu"><a href="atualizar.php?id=<?=$alunos['id']?>">Editar</a></td>
-            <td class="exc"><a class="excluir" href="excluir.php?id=<?=$alunos['id']?>">Excluir</a></td>
+            <td class="atu"><i class="fa-solid fa-pen-to-square" style="color: #264f97;"></i><a href="atualizar.php?id=<?=$alunos['id']?>">Editar Aluno</a></td>
+            <td class="exc"><i class="fa-solid fa-trash-can" style="color: #fb0909;"></i><a class="excluir" href="excluir.php?id=<?=$alunos['id']?>">Excluir aluno</a></td>
         </tr>
 
         <?php    
@@ -59,8 +59,9 @@ $listaDeAlunos = lerAlunos($conexao);
         ?>
     </table>
         <div class="linkes">
-            <p class="link"><a href="inserir.php">Inserir novo aluno</a></p>
-            <p class="link"><a href="index.php">Voltar ao início</a></p>
+            <p class="link"><i class="fa-solid fa-plus" style="color: #ffffff;"></i><a href="inserir.php"> Inserir novo aluno</a></p>
+            <p class="link"><i class="fa-solid fa-house"></i> <a href="index.php">Voltar ao início</a></p>
+            
         </div>
     </div>
 <script src="js/confirmar-exclusao.js"></script>

@@ -1,25 +1,35 @@
-html { font-size: 16px; text-transform: capitalize;}
+html { font-size: 16px;}
 body { font-family: "Segoe UI", Arial, sans-serif;}
 
 .container {
     max-width: 1200px;
     width: 100%;
     margin: auto;
+    margin-top: 40px;
 }
 
 a { 
-    color: blue;
+    color: white;
     font-weight: bold;
     text-decoration: none;
     font-size: 1rem;
 }
 
-h1{text-align: center;}
+h1{
+    text-align: center;
+    /* background-color: rgb(69, 69, 231); */
+    padding: 15px;
+    width: 930px;
+    margin: auto;
+}
 h2 a { font-size: 0.9rem; }
 
 a:hover, a:focus { 
     text-decoration: underline;
 }
+
+
+/*===== página visualizar =========*/
 
 .container table{
     margin: auto;
@@ -27,6 +37,15 @@ a:hover, a:focus {
     text-align: center;
 
 }
+
+table tr td:first-child{
+    text-transform: capitalize;
+}
+
+table tr th{
+    background-color: yellow;
+}
+
 
 .container table tr:nth-child(even){
     background-color: rgb(143, 170, 170);
@@ -36,18 +55,126 @@ a:hover, a:focus {
     padding: 10px;
 }
 
+.atu a{
+    padding: 0 25px;
+    color: blue;
+}
 .exc a{
     color: red;
+    padding: 0 25px;
 }
 
 .linkes{
     display: flex;
-    margin: auto;
-    width: 350px;
+    justify-content: center;
 }
 
 .link{
+    padding: 10px 120px;
+    border-radius: 10px;
+}
+
+.linkes p:first-child{
+    background-color: green;
+    margin-right: 10px;
+}
+.linkes p:last-child{
+    background-color: #619a8b;
+    color: white;
+}
+
+
+p{
     padding: 10px;
     margin-left: 5px;
+}
 
+/* ==================== */
+
+/* index */
+
+h2{
+    text-align: center;
+}
+
+ul{
+    display: flex;  
+    justify-content: center;
+    margin-top: 70px;
+    list-style: none;
+    gap: 15px;
+}
+
+
+ul li{
+    background-color: blue;
+    border-radius: 10px;
+    padding: 15px 120px;
+}
+
+ul li a{
+    border: 2px soolid black;
+}
+
+/* =================== */
+
+/* Cadastrar */
+
+.inserir{
+    border-radius: 10px;
+    background-color: rgb(156, 178, 228);
+    text-align: center;
+    margin: auto;
+    padding: 10px;
+    width: 500px;
+}
+
+.inserir p {
+    font-weight: bold;
+}
+
+.inserir input{
+    border: none;
+    border-radius: 10px;
+    padding: 10px 15px ;
+    text-decoration: none;
+    width: 300px;
+}
+
+form div{
+    margin: auto;
+    text-align: left;
+    width: 350px;
+}
+form div p{
+    margin: auto;
+}
+form button {
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(81, 196, 81);
+    -webkit-box-shadow: -1px 1px 6px 1px rgba(0,0,0,0.38);
+    -moz-box-shadow: -1px 1px 6px 1px rgba(0,0,0,0.38);
+    box-shadow: -1px 1px 6px 1px rgba(0,0,0,0.38);
+    cursor: pointer;
+    font-weight: bold; 
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px 30px;
+    
+}
+
+form button:hover{
+    transform: scale(1.1);
+    transition: 1s;
+}
+
+.link-voltar{
+    background-color: #619a8b;
+    border-radius: 10px;
+    text-align: center;
+    margin: auto;
+    margin-top: 10px;
+    margin-left: 340px;
+    width: 150px;
 }
